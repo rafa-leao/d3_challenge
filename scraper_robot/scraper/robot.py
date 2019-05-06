@@ -19,7 +19,13 @@ class Robot:
 
 		if url_validator:
 
-			site_response = requests.get(self.url_site, timeout=5).content
+			try:
+				
+				site_response = requests.get(self.url_site, timeout=5).content
+
+			except:
+
+				print("An error ocurred while trying getting the url passed")
 
 			site_content = BeautifulSoup(site_response, "html.parser")
 
