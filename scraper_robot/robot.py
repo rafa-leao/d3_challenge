@@ -5,13 +5,8 @@ from url_checker import url_checker
 
 url_site = 'https://scrapethissite.com/pages'
 
-url_site_disallowed_path = ['/ ', '/lessons', '/faq']
+url_site_disallowed_path = ['/ ', '/lessons', '/faq'] # That could be dynamically
 
-"""Disallowed paths:
- '/' => By the way, when you scrape the url_site, the first link is hidden!
- '/lessons/'
- '/faq/'
-"""
 validated_url = url_checker(url_site, url_site_disallowed_path)
 
 if validated_url:
