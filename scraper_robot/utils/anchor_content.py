@@ -1,11 +1,11 @@
 def anchor_content(site_content):
 
-	site_content_urls = []
+	site_anchors_content = []
 
 	links = site_content.find_all('a')
 
 	for link in links:
 		link = link.attrs["href"] if "href" in link.attrs else ''
-		site_content_urls.append(link)
+		site_anchors_content.append(link)
 
-	return site_content_urls
+	return site_anchors_content
