@@ -2,7 +2,9 @@ from bs4 import BeautifulSoup
 import requests
 
 from utils.url_checker import url_checker
+from utils.path_checker import path_checker
 from utils.anchor_content import anchor_content
+
 
 class Robot:
 
@@ -30,17 +32,10 @@ class Robot:
 
 			site_content = BeautifulSoup(site_response, "html.parser")
 
+			# fix the variable name to site_anchors
 			site_content_urls = anchor_content(site_content)
 
-			paths = []
-
-			for path in site_content_urls:
-
-				if path not in self.url_site_disallowed_path:
-
-					paths.append(path)
-
-			return paths
+			return path_checker(site_content_urls, self.url_site_disallowed_path)
 
 		else:
 
