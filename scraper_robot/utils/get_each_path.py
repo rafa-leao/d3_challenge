@@ -7,12 +7,13 @@ def get_each_path(url_site):
 	
 	try:
 
+		print('Trying to get paths from {}'.format(url_site))
 		site_response = requests.get(url_site, timeout=5).content
 
 	except:
 
 		print("An error ocurred while trying getting the url passed")
 
-	site_content = BeautifulSoup(site_response, "html.parser")
+	r = BeautifulSoup(site_response, "html.parser")
 
-	return anchor_content(site_content)
+	return anchor_content(r)
