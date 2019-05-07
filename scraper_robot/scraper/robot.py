@@ -34,7 +34,7 @@ class Robot:
 
 			site_anchors_content = anchor_content(site_content)
 
-			return path_checker(site_anchors_contents, self.url_site_disallowed_path)
+			return path_checker(site_anchors_content, self.url_site_disallowed_path)
 
 		else:
 
