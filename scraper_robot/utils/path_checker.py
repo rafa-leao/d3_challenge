@@ -1,4 +1,4 @@
-def  path_checker(site_content_url, url_site_disallowed_path):
+def  path_checker(site_anchors_content, url_site_disallowed_path):
 
 	paths = []
 

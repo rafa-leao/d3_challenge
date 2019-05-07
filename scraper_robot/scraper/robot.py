@@ -32,10 +32,9 @@ class Robot:
 
 			site_content = BeautifulSoup(site_response, "html.parser")
 
-			# fix the variable name to site_anchors
-			site_content_urls = anchor_content(site_content)
+			site_anchors_content = anchor_content(site_content)
 
-			return path_checker(site_content_urls, self.url_site_disallowed_path)
+			return path_checker(site_anchors_contents, self.url_site_disallowed_path)
 
 		else:
 
