@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 
 from utils.url_checker import url_checker
+from utils.anchor_content import anchor_content
 
 class Robot:
 
@@ -29,12 +30,7 @@ class Robot:
 
 			site_content = BeautifulSoup(site_response, "html.parser")
 
-			site_content_urls = []
-
-			links = site_content.find_all('a')
-			for link in links:
-				link = link.attrs["href"] if "href" in link.attrs else ''
-				site_content_urls.append(link)
+			site_content_urls = anchor_content(site_content)
 
 			paths = []
 
