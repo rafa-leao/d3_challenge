@@ -1,9 +1,7 @@
-from bs4 import BeautifulSoup
-import requests
-
 from utils.url_checker import url_checker
 from utils.path_checker import path_checker
-from utils.anchor_content import anchor_content
+from utils.get_each_path import get_each_path
+from utils.all_site_paths import all_site_paths
 
 
 class Robot:
@@ -21,20 +19,12 @@ class Robot:
 									self.url_site_disallowed_path)
 
 		if url_validator:
+			
+			site_anchors_content = get_each_path(self.url_site)
 
-			try:
-
-				site_response = requests.get(self.url_site, timeout=5).content
-
-			except:
-
-				print("An error ocurred while trying getting the url passed")
-
-			site_content = BeautifulSoup(site_response, "html.parser")
-
-			site_anchors_content = anchor_content(site_content)
-
-			return path_checker(site_anchors_content, self.url_site_disallowed_path)
+			return all_site_paths(
+				path_checker(site_anchors_content, self.url_site_disallowed_path)
+			)
 
 		else:
 
