@@ -2,7 +2,7 @@ from utils.url_checker import url_checker
 from utils.path_checker import path_checker
 from utils.get_each_path import get_each_path
 from utils.all_site_paths import all_site_paths
-from utils.all_site_assets import all_site_assets
+from utils.assets_from_path import assets_from_path
 
 
 class Robot:
@@ -32,8 +32,33 @@ class Robot:
 
 		else:
 
-			print("Sorry, the path in the site wich you trying to access is disallowed!")
+			print("Sorry, the path in the site which you trying to access is not allowed!")
 
 	def path_assets_catcher(self, paths):
 
-		return all_site_assets(paths)
+		assets_found = []
+
+		for path in paths:
+
+			try:
+
+				print('Trying to get {}'.format(path))
+				site_response = requests.get('https://scrapethissite.com{}'.format(path)).content
+
+			except:
+
+				print("An error ocurred while trying getting the url passed")
+			
+			print('Parsing in {} HTML'.format(path))
+			site_content = BeautifulSoup(site_response, "html.parser")
+
+			js_found = site_content.find_all('script')
+		
+			css_found = site_content.find_all('link')
+
+			img_found = site_content.find_all('img')
+			
+
+			assets_found.append(assets_from_path(path, js, css, img))
+
+	return assets_found
