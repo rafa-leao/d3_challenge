@@ -1,6 +1,7 @@
 import requests
 
-from utils.get_each_path import get_each_path
+from utils.get_url import get_url
+from utils.anchor_content import anchor_content
 
 
 def all_site_paths(paths):
@@ -9,7 +10,7 @@ def all_site_paths(paths):
 
 	for path in paths:
 
-		path_result = get_each_path('https://scrapethissite.com{}'.format(path))
+		path_result = anchor_content(get_url('https://scrapethissite.com{}'.format(path)))
 
 		for single_path in path_result:
 

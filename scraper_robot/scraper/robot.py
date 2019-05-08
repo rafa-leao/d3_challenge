@@ -1,6 +1,7 @@
+from utils.get_url import get_url
 from utils.url_checker import url_checker
 from utils.path_checker import path_checker
-from utils.get_each_path import get_each_path
+from utils.anchor_content import anchor_content
 from utils.all_site_paths import all_site_paths
 from utils.assets_from_path import assets_from_path
 
@@ -21,7 +22,8 @@ class Robot:
 
 		if url_validator:
 			
-			site_anchors_content = get_each_path(self.url_site)
+
+			site_anchors_content = anchor_content(get_url(self.url_site))
 			print('We got all paths in {}. Now we will crawl through them and map the site!'
 				  .format(self.url_site)
 			)
@@ -40,25 +42,13 @@ class Robot:
 
 		for path in paths:
 
-			try:
+			html_content = get_url('https://scrapethissite.com{}'.format(path))
 
-				print('Trying to get {}'.format(path))
-				site_response = requests.get('https://scrapethissite.com{}'.format(path)).content
-
-			except:
-
-				print("An error ocurred while trying getting the url passed")
-			
-			print('Parsing in {} HTML'.format(path))
-			site_content = BeautifulSoup(site_response, "html.parser")
-
-			js_found = site_content.find_all('script')
-		
-			css_found = site_content.find_all('link')
-
-			img_found = site_content.find_all('img')
+			js_found  = html_content.find_all('script')
+			css_found = html_content.find_all('link')
+			img_found = html_content.find_all('img')
 			
 
-			assets_found.append(assets_from_path(path, js, css, img))
+			assets_found.append(assets_from_path(path, js_found, css_found, img_found))
 
-	return assets_found
+		return assets_found
