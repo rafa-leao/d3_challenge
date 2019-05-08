@@ -1,6 +1,10 @@
 def assets_from_path(path, js_found, css_found, img_found):
 
-	assets_atached = [path + " ====>"]
+	assets_atached = [path, [], [], []]
+
+	js_files  = []
+	css_files = []
+	img_files = []
 
 	print("Cathing js files from {}".format(path))
 	for js_file in js_found:
@@ -8,8 +12,7 @@ def assets_from_path(path, js_found, css_found, img_found):
 
 		js_file = js_file.attrs["src"] if "src" in js_file.attrs else 'No file path :c'
 
-		assets_atached.append("JS_FILE:")
-		assets_atached.append(js_file)
+		js_files.append(js_file)
 
 	print("Cathing css files from {}".format(path))
 	for css_file in css_found:
@@ -17,8 +20,7 @@ def assets_from_path(path, js_found, css_found, img_found):
 
 		css_file = css_file.attrs["href"] if 'href' in css_file.attrs else 'No file path :c'
 
-		assets_atached.append("CSS_FILE:")
-		assets_atached.append(css_file)
+		css_files.append(css_file)
 
 	print("Cathing img files from {}".format(path))
 	for img_file in img_found:
@@ -26,7 +28,15 @@ def assets_from_path(path, js_found, css_found, img_found):
 
 		img_file = img_file.attrs["src"] if "src" in img_file.attrs else 'No file path :c'
 
-		assets_atached.append("IMG_FILE:")
-		assets_atached.append(img_file)
+		img_files.append(img_file)
+
+	assets_atached[1].append("JS_FILES: ")
+	assets_atached[1].append(js_files)
+
+	assets_atached[2].append("CSS_FILES: ")
+	assets_atached[2].append(css_file)
+
+	assets_atached[3].append("IMG_FILES: ")
+	assets_atached[3].append(img_file)
 
 	return assets_atached
