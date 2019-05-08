@@ -6,9 +6,13 @@ if __name__ == '__main__':
 
 	print("Scraping...")
 
-	# This url is alredy with a allowed path. So the entry point to crawl on every page of this site is with this path!
 	paths = Robot().paths_catcher()
 
+	print("ALL PATHS ====> ")
 	print(paths)
 
 	print(Robot().path_assets_catcher(paths))
+
+	print("-*-------------*-------------*-------------*-------------*-------------*-")
+	print("     Copy this huge return and paste on: http://jsonviewer.stack.hu/     ")
+	print("-*-------------*-------------*-------------*-------------*-------------*-")
