@@ -1,6 +1,6 @@
 def assets_from_path(path, js_found, css_found, img_found):
 
-	assets_atached = [path + "=>"]
+	assets_atached = [path + " ====>"]
 
 	print("Cathing js files from {}".format(path))
 	for js_file in js_found:
@@ -15,7 +15,7 @@ def assets_from_path(path, js_found, css_found, img_found):
 	for css_file in css_found:
 		# it is not going to catch css wrotten in the bare HTML file
 
-		css_file = css_file.attrs["href"] if 'rel="stylesheet"' in css_file.attrs else 'No file path :c'
+		css_file = css_file.attrs["href"] if 'href' in css_file.attrs else 'No file path :c'
 
 		assets_atached.append("CSS_FILE:")
 		assets_atached.append(css_file)
