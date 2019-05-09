@@ -30,13 +30,15 @@ def assets_from_path(path, js_found, css_found, img_found):
 
 		img_files.append(img_file)
 
+	print("-*-------------*-------------*-------------*-------------*-------------*-")
+
 	assets_atached[1].append("JS_FILES: ")
 	assets_atached[1].append(js_files)
 
 	assets_atached[2].append("CSS_FILES: ")
-	assets_atached[2].append(css_file)
+	assets_atached[2].append(css_files)
 
 	assets_atached[3].append("IMG_FILES: ")
-	assets_atached[3].append(img_file)
+	assets_atached[3].append(img_files)
 
 	return assets_atached
