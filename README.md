@@ -1,7 +1,5 @@
 # d3_scraper
 
-## What?
-
 It's about a web crawler which map a site and find its assets such as JS, CSS, IMG.
 
 For now this crawler is static and just goes to scrapethissite.com
