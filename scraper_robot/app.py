@@ -1,7 +1,5 @@
 from scraper.robot import Robot
 
-from utils.all_site_paths import all_site_paths
-
 if __name__ == '__main__':
 
 	print("Scraping...")
