@@ -1,5 +1,3 @@
-import requests
-
 from utils.get_url import get_url
 from utils.anchor_content import anchor_content
 
