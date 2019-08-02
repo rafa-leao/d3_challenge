@@ -3,7 +3,7 @@ import requests
 
 
 def get_url(url_site):
-	
+
 	try:
 
 		print('Trying to get {}'.format(url_site))
@@ -11,6 +11,6 @@ def get_url(url_site):
 
 	except:
 
-		print("An error ocurred while trying getting the url passed")
+		print("An error occurred while trying getting the url passed")
 
 	return BeautifulSoup(site_response, "html.parser")
