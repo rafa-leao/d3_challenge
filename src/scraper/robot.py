@@ -34,7 +34,7 @@ class Robot:
 					if single_path.startswith('/'):
 						paths_found.append(path)
 
-			# remove the mapped site and remove duplicates
+			# return the mapped site and remove duplicates
 			return list(dict.fromkeys(paths_found))
 
 		print("Sorry, the path in the site which you trying to access is not allowed!")
