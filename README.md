@@ -4,7 +4,9 @@ It's about a web crawler which map a site and find its assets such as JS, CSS, I
 
 For now this crawler is static and just goes to scrapethissite.com
 
-## How do I run it?
+Challenge by [D3](https://www.d3.do/)
+
+## Usage
 
 - Clone this repository;
 - Create a [Virtualenv](https://virtualenv.pypa.io/en/latest/) and activate it;
