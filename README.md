@@ -1,4 +1,4 @@
-# d3_scraper
+# site_mapper_challenge
 
 It's about a web crawler which map a site and find its assets such as JS, CSS, IMG.
 
@@ -12,5 +12,3 @@ Challenge by [D3](https://www.d3.do/)
 - Create a [Virtualenv](https://virtualenv.pypa.io/en/latest/) and activate it;
 - Install the requirements ```pip3 install -r requirements.txt```
 - Run the file ```app.py```
-
-Disclaimer: It is not supposed to be as fast as light.
